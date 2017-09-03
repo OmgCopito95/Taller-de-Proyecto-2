@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">
+	<title>Estación Meteorológica</title>
+</head>
+<body>
+<h1> Estación Meteorológica </h1>
+
+<form action="/" method="POST"> <!-- donde va a estar los datos que se envian -->
+    <input type="text" name="frec" placeholder="Ingrese frecuencia" required/>
+    <br>
+    <br>
+	<button type="submit">Aceptar</button>
+</form>
+
+<h3> Frecuencia de muestreo: {{frec}} </h3>
+
+<h3> Promedio de las últimas 10 muestras</h3>
+<table>
+	<tr>
+		<th>Temperatura [°C]</th>
+		<th>Humedad [%]</th>
+		<th>Presión Atmosférica [hPa]</th>
+		<th>Velocidad del Viento [km/h]</th> 
+	</tr>
+	<tr> 
+		<td>{{promTemp}}</td> 
+		<td>{{promHum}}</td>
+		<td>{{promPa}}</td>
+		<td>{{promV}}</td>
+	</tr> 
+</table>
+<br>
+<h3>Última muestra</h3>
+<table>
+	<tr>
+		<th>Temperatura [°C]</th>
+		<th>Humedad [%]</th>
+		<th>Presión Atmosférica [hPa]</th>
+		<th>Velocidad del Viento [km/h]</th> 
+	</tr>
+	<tr> 
+		<td>{{ultTemp}}</td> 
+		<td>{{ultHum}}</td>
+		<td>{{ultPa}}</td>
+		<td>{{ultV}}</td>
+	</tr> 
+</table>
+</body>
+</html>

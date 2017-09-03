@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">
+	<title>Estación Meteorológica</title>
+</head>
+<body>
+<h1> Estación Meteorológica </h1>
+<h3> Frecuencia de muestreo: {{frec}} </h3>
+<h3> Promedio de las últimas 10 muestras</h3>
+<table>
+	<tr>
+		<th>Temperatura</th>
+		<th>Humedad</th>
+		<th>Presión Atmosférica</th>
+		<th>Velocidad del Viento</th> 
+	</tr>
+	<tr> 
+		<td>{{promTemp}}</td> 
+		<td>{{promHum}}</td>
+		<td>{{promPa}}</td>
+		<td>{{promV}}</td>
+	</tr> 
+</table>
+<br>
+<h3>Última muestra</h3>
+<table>
+	<tr>
+		<th>Temperatura</th>
+		<th>Humedad</th>
+		<th>Presión Atmosférica</th>
+		<th>Velocidad del Viento</th> 
+	</tr>
+	<tr> 
+		<td>{{ultTemp}}</td> 
+		<td>{{ultHum}}</td>
+		<td>{{ultPa}}</td>
+		<td>{{ultV}}</td>
+	</tr> 
+</table>
+</body>
+</html>
