@@ -1,34 +1,33 @@
 from flask import Flask
 from flask import render_template
 from flask import request
-import estacionMeteorologica
+import lector
 
 app = Flask(__name__)
 
-@app.route('/', methods = ['GET', 'POST']) # Se requiere GET para poder cargar la pagina por primera vez
+@app.route('/', methods = ['POST', 'GET']) # Se requiere GET para poder cargar la pagina por primera vez
 
 
 def index():
     frecuencia = action_form()
-    estacionMeteorologica.generar_datos(frecuencia) 
-    temp,hum,pa,viento = estacionMeteorologica.leer_datos()
+    temp,hum,pa,viento = lector.leer_datos()
     promedioTemp = calcular_promedio10(temp)
     promedioHum = calcular_promedio10(hum)
     promedioPa = calcular_promedio10(pa)
     promedioVient =  calcular_promedio10(viento)
-    return render_template('index.html',frec = frecuencia,promTemp=promedioTemp,promHum=promedioHum,promPa=promedioPa,
-        promV=promedioVient,ultTemp=temp[len(temp)-1] ,ultHum=hum[len(hum)-1] ,ultPa=pa[len(pa)-1] ,ultV=viento[len(viento)-1])
+    if temp:
+        return render_template('index.html',frec = frecuencia,promTemp=promedioTemp,promHum=promedioHum,promPa=promedioPa,
+            promV=promedioVient,ultTemp=temp[len(temp)-1] ,ultHum=hum[len(hum)-1] ,ultPa=pa[len(pa)-1] ,ultV=viento[len(viento)-1])
+    else:
+        return "No existen datos. Verifique que el sensor se encuentra conectado."
 
 def action_form():
-    if request.method == 'POST':
-        data=request.form
-        frecuencia=int(data["frec"])
-        if frecuencia < 200: # Evita que se generen grandes cantidades de datos
-            return frecuencia
-        else:
-            return 5
+    # here we want to get the value of user (i.e. ?user=some-value)
+    frecuencia = request.args.get('frec')
+    if not frecuencia:
+        return 15
     else:
-        return 5
+        return frecuencia
 
 
 def calcular_promedio10(lista):

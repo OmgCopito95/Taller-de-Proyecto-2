@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script type="text/javascript">
+		setTimeout(function(){
+   		window.location.reload(1);
+		}, {{frec}} * 1000); 
+	</script>
+
 	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">
 	<title>Estación Meteorológica</title>
 </head>
 <body>
 <h1> Estación Meteorológica </h1>
 
-<form action="/" method="POST"> <!-- donde va a estar los datos que se envian -->
+<form action="/" method="GET"> <!-- donde va a estar los datos que se envian -->
     <input type="text" name="frec" placeholder="Ingrese frecuencia" required/>
     <br>
     <br>
@@ -47,5 +53,8 @@
 		<td>{{ultV}}</td>
 	</tr> 
 </table>
+
+<script type="text/javascript"> setTimeOut(); </script>
+
 </body>
 </html>

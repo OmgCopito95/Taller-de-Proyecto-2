@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script type="text/javascript">
+	setTimeout(function(){
+   		window.location.reload(1);
+	}, {{frec}} * 1000); 
+	</script>
 	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">
 	<title>Estación Meteorológica</title>
 </head>
@@ -38,5 +43,8 @@
 		<td>{{ultV}}</td>
 	</tr> 
 </table>
+
+<script type="text/javascript"> setTimeOut(); </script>
+
 </body>
 </html>
