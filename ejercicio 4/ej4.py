@@ -56,6 +56,5 @@ def leer_datos():
     return temp,hum,pa,viento       
 
 if __name__ == "__main__":
-    app.run (host='localhost', port=80)
-
+    app.run (host = '127.0.0.1', port = 5000)
 
