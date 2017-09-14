@@ -1,7 +1,6 @@
 from flask import Flask
 from flask import render_template
 from flask import request
-import lector
 import time
 
 app = Flask(__name__)
@@ -12,7 +11,7 @@ app.debug = True
 
 def index():
     frecuencia = 5 # frecuencia de muestreo
-    temp,hum,pa,viento = lector.leer_datos()
+    temp,hum,pa,viento = leer_datos()
     promedioTemp = calcular_promedio10(temp)
     promedioHum = calcular_promedio10(hum)
     promedioPa = calcular_promedio10(pa)
@@ -29,6 +28,26 @@ def calcular_promedio10(lista):
         return suma / 10
     else:
         return "XXX" # No hay sufiente valores para obtener el promedio
+
+def leer_datos():
+    # lee los datos del archivo de texto
+    temp = []
+    hum = []
+    pa = []
+    viento = []
+    with open("datos.txt", "r") as file:
+        lineas = file.readlines()
+        for l in lineas:
+            datos = l.split("/")
+            temp.append(datos[0]) 
+            hum.append(datos[1])
+            pa.append(datos[2])
+            viento.append(datos[3][:-1]) #el -1 elimina el /n
+    return temp,hum,pa,viento       
+
+if __name__ == "__main__":
+    leer_datos()
+
 
 
 if __name__ == "__main__":
