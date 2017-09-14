@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<!-- <script type="text/javascript"> setTimeout(function () {window.location.reload(1);}, {{frec }}*1000);</script> -->
+		<script type="text/javascript"> setTimeout(function () {window.location.reload(1);}, {{frec }}*1000);</script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- JQuery -->
 		<script src="{{url_for('static', filename='jquery/jquery-3.2.1.min.js')}}"></script>
@@ -12,39 +12,38 @@
 		<script src="{{url_for('static', filename='bootstrap/js/bootstrap.min.js')}}"></script>
 	</head>
 	<body>
-		<div class="panel panel-default">
-			<!-- Default panel contents -->
-			<div class="panel-heading" style="text-align: center">Estación Meteorológica</div>
-			<div class="panel-body">
-				<p>
-					<h3 class=> Frecuencia de muestreo: {{frec}} </h3>
-				</p>
-			</div>
-			<div class="container-fluid">
-				<table class="table table-condensed">
-					<tr style="background-color: #eee">
-						<th class="col-sm-4"></th>
-						<th class="col-sm-2" style="text-align: center">Temperatura</th>
-						<th class="col-sm-2" style="text-align: center">Humedad</th>
-						<th class="col-sm-2" style="text-align: center">Presión Atmosférica</th>
-						<th class="col-sm-2" style="text-align: center">Velocidad del Viento</th>
+		<div class="container-fluid">
+			<div class="panel panel-default">
+				<!-- Default panel contents -->
+				<div class="panel-heading" style="text-align: center">Estación Meteorológica</div>
+				<div class="panel-body">
+					<div class="col-sm col-xs" style="text-align: center; margin-top:20px">
+						<span>Frecuencia de muestreo: {{frec}}</span>
+					</div>
+				</div>
+				<table class="table table-condensed" style="margin-top:20px">
+					<tr style="background-color: #eee; height:10px">
+						<th class="col-sm-4 col-xs-4 "></th>
+						<th class="col-sm-2 col-xs-2" style="text-align: center">Temperatura</th>
+						<th class="col-sm-2 col-xs-2" style="text-align: center">Humedad</th>
+						<th class="col-sm-2 col-xs-2" style="text-align: center">Presión Atmosférica</th>
+						<th class="col-sm-2 col-xs-2" style="text-align: center">Velocidad del Viento</th>
 					</tr>
-					<tr>
-						<td class="col-sm-4" style="background-color: #eee;text-align: center">Promedio de las últimas 10 muestras</td>
-						<td class="col-sm-2" style="background-color: #bfbdc1;text-align: center">{{promTemp}}</td>
-						<td class="col-sm-2" style="background-color: #bfbdc1;text-align: center">{{promHum}}</td>
-						<td class="col-sm-2" style="background-color: #bfbdc1;text-align: center">{{promPa}}</td>
-						<td class="col-sm-2" style="background-color: #bfbdc1;text-align: center"> {{promV}}</td>
+					<tr style="height:10px">
+						<td class="col-sm-4 col-xs-4" style="background-color: #eee;text-align: center">Promedio de las últimas 10 muestras</td>
+						<td class="col-sm-2 col-xs-2" style="background-color: #bfbdc1;text-align: center">{{promTemp}}</td>
+						<td class="col-sm-2 col-xs-2" style="background-color: #bfbdc1;text-align: center">{{promHum}}</td>
+						<td class="col-sm-2 col-xs-2" style="background-color: #bfbdc1;text-align: center">{{promPa}}</td>
+						<td class="col-sm-2 col-xs-2" style="background-color: #bfbdc1;text-align: center"> {{promV}}</td>
 					</tr>
-					<tr style="text-align: center">
-						<td class="col-sm-4" style="background-color: #eee">Última muestra</td>
-						<td class="col-sm-2" style="background-color: #bfbdc1;text-align: center">{{ultTemp}}</td>
-						<td class="col-sm-2" style="background-color: #bfbdc1;text-align: center">{{ultHum}}</td>
-						<td class="col-sm-2" style="background-color: #bfbdc1;text-align: center">{{ultPa}}</td>
-						<td class="col-sm-2" style="background-color: #bfbdc1;text-align: center">{{ultV}}</td>
+					<tr style="height:10px">
+						<td class="col-sm-4 col-xs-4" style="background-color: #eee;text-align: center">Última muestra</td>
+						<td class="col-sm-2 col-xs-2" style="background-color: #bfbdc1;text-align: center">{{ultTemp}}</td>
+						<td class="col-sm-2 col-xs-2" style="background-color: #bfbdc1;text-align: center">{{ultHum}}</td>
+						<td class="col-sm-2 col-xs-2" style="background-color: #bfbdc1;text-align: center">{{ultPa}}</td>
+						<td class="col-sm-2 col-xs-2" style="background-color: #bfbdc1;text-align: center">{{ultV}}</td>
 					</tr>
 				</table>
-			</div>
 		</div>
 	</body>
 </html>

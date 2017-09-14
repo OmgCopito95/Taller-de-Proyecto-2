@@ -5,7 +5,7 @@ import lector
 import time
 
 app = Flask(__name__)
-
+app.debug = True
 @app.route('/') # define la ruta con la que se ingresa en el explorador
 
 # muestra la pagina

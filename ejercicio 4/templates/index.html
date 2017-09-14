@@ -1,60 +1,76 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script type="text/javascript">
-		setTimeout(function(){
-   		window.location.reload(1);
-		}, {{frec}} * 1000); 
-	</script>
+	<script type="text/javascript"> setTimeout(function () {window.location.reload(1);}, {{frec }}*1000);</script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- JQuery -->
+	<script src="{{url_for('static', filename='bootstrap/js/jquery-3.2.1.min.js')}}"></script>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="{{url_for('static', filename='bootstrap/css/bootstrap.min.css')}}" />
+	<!-- Bootstrap JS -->
+	<script src="{{url_for('static', filename='bootstrap/js/popper.min.js')}}"></script>
+	<script src="{{url_for('static', filename='bootstrap/js/bootstrap.min.js')}}"></script>
+	<style type="text/css">
+		
+					.ancho{
+						width: auto !important;
+					}
+		
+				</style>
 
-	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">
-	<title>Estación Meteorológica</title>
 </head>
 <body>
-<h1> Estación Meteorológica </h1>
-
-<form action="/" method="GET"> <!-- donde va a estar los datos que se envian -->
-    <input type="text" name="frec" placeholder="Ingrese frecuencia" required/>
-    <br>
-    <br>
-	<button type="submit">Aceptar</button>
-</form>
-
-<h3> Frecuencia de muestreo: {{frec}} </h3>
-
-<h3> Promedio de las últimas 10 muestras</h3>
-<table>
-	<tr>
-		<th>Temperatura [°C]</th>
-		<th>Humedad [%]</th>
-		<th>Presión Atmosférica [hPa]</th>
-		<th>Velocidad del Viento [km/h]</th> 
-	</tr>
-	<tr> 
-		<td>{{promTemp}}</td> 
-		<td>{{promHum}}</td>
-		<td>{{promPa}}</td>
-		<td>{{promV}}</td>
-	</tr> 
-</table>
-<br>
-<h3>Última muestra</h3>
-<table>
-	<tr>
-		<th>Temperatura [°C]</th>
-		<th>Humedad [%]</th>
-		<th>Presión Atmosférica [hPa]</th>
-		<th>Velocidad del Viento [km/h]</th> 
-	</tr>
-	<tr> 
-		<td>{{ultTemp}}</td> 
-		<td>{{ultHum}}</td>
-		<td>{{ultPa}}</td>
-		<td>{{ultV}}</td>
-	</tr> 
-</table>
-
-<script type="text/javascript"> setTimeOut(); </script>
-
+	<div class="container-fluid">
+		<div class="panel panel-default">
+			<!-- Default panel contents -->
+			<div class="panel-heading" style="text-align: center">Estación Meteorológica</div>
+				<div class="panel-body" style="margin-top:20px;margin-bottom:20px">
+					<div class="col-sm col-xs" style="text-align: center">
+						<span>Frecuencia de muestreo: {{frec}}</span>
+					</div>
+					<div class="row-fluid">
+						<div class="col-sm col-xs col-md col-lg" style="text-align: center;">
+							<form class="form-inline" action="/" method="GET">
+								<div class="form-group">
+									<div class=""> 
+											<label>Ingrese la frecuencia deseada:</label>
+										</div>
+									</div class="">
+										<input type="text" name="frec" class="ancho" id="frec" placeholder="valores desde 1" style="margin-left:9px">		
+									<div>
+									<div class="">
+										<button type="submit" class="btn btn-default" style="margin-left:9px">Aceptar</button>
+									</div>	
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<table class="table table-condensed">
+				<tr style="background-color: #eee">
+					<th class="col-sm-4 col-md-4 col-lg-4 ancho"></th>
+					<th class="col-sm-2 col-md-2 col-lg-2 ancho" style="text-align: center">Temperatura [°C]</th>
+					<th class="col-sm-2 col-md-2 col-lg-2 ancho" style="text-align: center">Humedad [%]</th>
+					<th class="col-sm-2 col-md-2 col-lg-2 ancho" style="text-align: center">Presión Atmosférica [hPa]</th>
+					<th class="col-sm-2 col-md-2 col-lg-2 ancho" style="text-align: center">Velocidad del Viento [km/h]</th>
+				</tr>
+				<tr style="background-color: #ddd">
+					<td class="col-sm-4 col-md-2 col-lg-4 ancho" style="text-align: center">Promedio de las últimas 10 muestras</td>
+					<td class="col-sm-2 col-md-2 col-lg-2 ancho" style="text-align: center">{{promTemp}}</td>
+					<td class="col-sm-2 col-md-2 col-lg-2 ancho" style="text-align: center">{{promHum}}</td>
+					<td class="col-sm-2 col-md-2 col-lg-2 ancho" style="text-align: center">{{promPa}}</td>
+					<td class="col-sm-2 col-md-2 col-lg-2 ancho" style="text-align: center">{{promV}}</td>
+				</tr>
+				<tr style="background-color: #ddd">
+					<td class="col-sm-4 col-md-2 col-lg-4 ancho" style="text-align: center">Última muestra</td>
+					<td class="col-sm-2 col-md-2 col-lg-2 ancho" style="text-align: center">{{ultTemp}}</td>
+					<td class="col-sm-2 col-md-2 col-lg-2 ancho" style="text-align: center">{{ultHum}}</td>
+					<td class="col-sm-2 col-md-2 col-lg-2 ancho" style="text-align: center">{{ultPa}}</td>
+					<td class="col-sm-2 col-md-2 col-lg-2 ancho" style="text-align: center">{{ultV}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
 </body>
 </html>
