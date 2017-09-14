@@ -1,4 +1,3 @@
-import estacionMeteorologica
 import time
 from random import randint
 
