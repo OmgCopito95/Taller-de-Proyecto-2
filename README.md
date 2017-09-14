@@ -7,4 +7,4 @@ Alumnos:
 	Lanciotti, Julieta 1107/1
 
 
-El informe correspondiente se encuentra en: Taller-de-Proyecto-2/Taller de Proyecto II-TP1.pdf
+El informe correspondiente se encuentra aqui: [Taller de Proyecto II-TP1.pdf](/Taller%20de%20Proyecto%20II-TP1.pdf)
