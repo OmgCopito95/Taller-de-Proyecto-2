@@ -10,7 +10,7 @@ app.debug = True
 
 def index():
     frecuencia = action_form()
-    temp,hum,pa,viento = lector.leer_datos()
+    temp,hum,pa,viento = leer_datos()
     promedioTemp = calcular_promedio10(temp)
     promedioHum = calcular_promedio10(hum)
     promedioPa = calcular_promedio10(pa)
@@ -22,7 +22,6 @@ def index():
         return "No existen datos. Verifique que el sensor se encuentra conectado."
 
 def action_form():
-    # here we want to get the value of user (i.e. ?user=some-value)
     frecuencia = request.args.get('frec')
     if not frecuencia:
         return 15
@@ -55,11 +54,6 @@ def leer_datos():
             pa.append(datos[2])
             viento.append(datos[3][:-1]) #el -1 elimina el /n
     return temp,hum,pa,viento       
-
-if __name__ == "__main__":
-    leer_datos()
-
-
 
 if __name__ == "__main__":
     app.run (host='localhost', port=80)

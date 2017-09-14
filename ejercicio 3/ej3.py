@@ -45,10 +45,6 @@ def leer_datos():
             viento.append(datos[3][:-1]) #el -1 elimina el /n
     return temp,hum,pa,viento       
 
-if __name__ == "__main__":
-    leer_datos()
-
-
 
 if __name__ == "__main__":
     app.run (host = '127.0.0.1', port = 5000)
